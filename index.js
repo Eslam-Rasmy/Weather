@@ -2,8 +2,8 @@
 
 
 async function search(sear) {
-    let x = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=6859b93137624e319d6202133240912&q=${sear}&days=3`);
-    if (x.ok && 400 != x.status) {
+    let x = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=6859b93137624e319d6202133240912&q=${sear}&days=3`);
+    if (x.ok && x.status<400) {
         let finalResult = await x.json();
         display1(finalResult.location, finalResult.current),
             display2(finalResult.forecast.forecastday)
